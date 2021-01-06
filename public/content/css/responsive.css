@@ -1,0 +1,74 @@
+@media (max-width:1199px) {
+	
+}
+@media (max-width:991px) {	
+	header .navbar { padding: 10px 15px; }
+	header .navbar .navbar-toggler { display: none; }
+	header .navbar .collapse:not(.show) { display: inline-block; flex-grow: inherit; align-items: initial; flex-basis: auto; }
+
+	section.page-wrapper {  padding: 20px 0px; }
+
+}
+/* ipad 768 portrait */
+@media (max-width:768px) {
+	
+}
+
+@media (max-width:767px) {
+	.scroll-bar-height { height: auto; }
+}
+/* iphone 6+ 736 landscape */
+@media (max-width:736px) {
+	
+
+}
+/* iphone 6 667 landscape */
+@media (max-width:667px) {
+	
+
+}
+/* iphone 5 568 landscape */
+@media (max-width:568px) {
+
+	
+}
+/* iphone 4 480 landscape */
+@media (max-width:480px) {
+	.white-line { font-size: 14px; padding: 5px 15px; }
+	.blue-btn { font-size: 14px; padding: 5px 15px; }
+
+	table.dataTable>tbody>tr.child ul.dtr-details { width: 100%; }
+	.right-modal .modal-content .modal-footer { padding: 8px 15px; }
+	
+	section.page-wrapper .custom-panel .panel-footer { padding: 8px 15px; }
+	section.login-register .inner-screen { padding: 20px 10px; }
+	section.login-register .inner-screen .white-box h1 { font-size: 24px; }
+	section.login-register .inner-screen .white-box { padding: 15px; }
+ 
+	header .navbar .navbar-brand img { height: 30px; }
+	header .navbar .navbar-nav .profile-name .pro-pic { margin-left: 8px; }
+	header .navbar .navbar-nav .profile-name .pro-pic span { font-size: 20px; width: 35px; height: 35px; line-height: 38px; }
+	header .navbar .navbar-nav .profile-name .text h4 { font-size: 13px; }
+	header .navbar .navbar-nav .profile-name .text h4 span { font-size: 12px; margin: 2px 0 0 0; }
+	section.page-wrapper{     height: calc(100vh - 63px); }
+	section.page-wrapper .form-view{ padding: 15px; }
+	section.page-wrapper .custom-panel .panel-head { font-size: 16px; }	 
+
+
+
+}
+/* iphone 6+ 414 portrait */
+@media (max-width:414px) {
+	
+    
+}
+/* iphone 6 375 portrait */
+@media (max-width:375px) {
+	.action li { padding-right: 4px; }	
+	section.page-wrapper .custom-panel .tool-box .search-box .search input[type="search"] { max-width: 180px; }
+}
+/* iphone 5 and iphone 4 320 portrait */
+@media (max-width:320px) {	
+	
+	
+}
