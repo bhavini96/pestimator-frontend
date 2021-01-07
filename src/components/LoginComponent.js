@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
+import { history } from "../helpers/history";
 class LoginComponent extends React.Component {
   constructor(props) {
     super(props)
@@ -21,12 +22,12 @@ class LoginComponent extends React.Component {
               <label>Password:*</label>
               <input type="password" name="" className="form-control" placeholder="Password"/>
             </div>
-            <div className="forgot-pass"><a href="forgot-password.html">Forgot Password?</a></div>
+            <div className="forgot-pass"><Link to="/forgot">Forgot Password?</Link></div>
             <div className="form-group">
-              <button className="btn login-btn">Sign In</button>
+              <button className="btn login-btn" onClick={e=>{history.push('/company')}}>Sign In</button>
             </div>
             <div className="bottom-link">
-              Do Not Have an Account? <a href="">Sign Up</a>
+              Do Not Have an Account? <Link to="signup">Sign Up</Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 class SignUpComponent extends React.Component {
   constructor(props) {
     super(props)
@@ -43,7 +43,7 @@ class SignUpComponent extends React.Component {
 			</div>
 
 			<div className="bottom-link">
-				Already Have an Account? <a style={{"color": "#1B67B4"}} href="sign-in.html">Sign In</a>
+				Already Have an Account? <Link style={{"color": "#1B67B4"}} to="/">Sign In</Link>
 			</div>
 		</div>
 	</div>

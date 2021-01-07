@@ -1,31 +1,14 @@
 import React from 'react';
 import { withRouter, Route, Redirect, Switch, useParams } from 'react-router-dom';
-import { connect } from "react-redux";
-import LoginComponent from "./components/LoginComponent";
-import SignUpComponent from "./components/SignUpComponent";
+import LayoutCompoent from "./components/superAdmin/Layout/LayoutCompoent";
 
-class Routes extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <Switch>
-                <Route
-                    exact={true} path="/"
-                    component={LoginComponent}
-                />
-               <Route
-                    exact={true} path="/signup"
-                    component={SignUpComponent}
-                />
-            </Switch>
-        );
-
-    }
+export const SuperAdminLayoutRoute = ({ component: Component, ...rest }) => {
+    return (
+        <Route {...rest} render={props => (
+                <LayoutCompoent>
+                    <Component {...props} />
+                </LayoutCompoent>
+        )} />
+    )
 }
-function mapState(state) {
-    return {};
-}
-export default connect(mapState)(withRouter(Routes));
 
