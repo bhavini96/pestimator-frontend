@@ -6,17 +6,17 @@ import { history } from '../src/helpers/history';
 import LoginComponent from "./components/LoginComponent";
 import SignUpComponent from "./components/SignUpComponent";
 import ForgotComponent from "./components/ForgotComponent";
-import CompanyListComponent from "./components/superAdmin/Company/CompanyListComponent";
-import AddCompanyComponent from "./components/superAdmin/Company/AddCompanyComponent";
-import EditCompanyProfileComponent from "./components/superAdmin/Company/EditCompanyProfileComponent";
-import CompanyCoverageListComponent from "./components/superAdmin/Company/CompanyCoverageListComponent";
-import StateListComponent from "./components/superAdmin/StateManagment/StateListComponent";
-import CountyListComponent from "./components/superAdmin/StateManagment/CountyListComponent";
-import ZipCodeListComponent from "./components/superAdmin/StateManagment/ZipCodeListComponent";
-import StaffListComponent from "./components/CompanyAdmin/StaffManagment/StaffListComponent";
-import AddStaffComponent from "./components/CompanyAdmin/StaffManagment/AddStaffComponent";
-import EditStaffComponent from "./components/CompanyAdmin/StaffManagment/EditStaffComponent";
-import ProfileComponent from "./components/Profile/ProfileComponent";
+import CompanyListComponent from "./components/superAdmin/company/CompanyListComponent";
+import AddCompanyComponent from "./components/superAdmin/company/AddCompanyComponent";
+import EditCompanyProfileComponent from "./components/superAdmin/company/EditCompanyProfileComponent";
+import CompanyCoverageListComponent from "./components/superAdmin/company/CompanyCoverageListComponent";
+import StateListComponent from "./components/superAdmin/stateManagment/StateListComponent";
+import CountyListComponent from "./components/superAdmin/stateManagment/CountyListComponent";
+import ZipCodeListComponent from "./components/superAdmin/stateManagment/ZipCodeListComponent";
+import StaffListComponent from "./components/companyAdmin/staffManagment/StaffListComponent";
+import AddStaffComponent from "./components/companyAdmin/staffManagment/AddStaffComponent";
+import EditStaffComponent from "./components/companyAdmin/staffManagment/EditStaffComponent";
+import ProfileComponent from "./components/profile/ProfileComponent";
 class App extends React.Component {
   constructor() {
     super()
@@ -58,11 +58,11 @@ class App extends React.Component {
                    component={StateListComponent}
                 />
                  <PrivateRoute
-                   exact={true} path="/county"
+                   exact={true} path="/county/:statename/:stateid"
                    component={CountyListComponent}
                 />
                  <PrivateRoute
-                   exact={true} path="/zip"
+                   exact={true} path="/zip/:statename/:countyname"
                    component={ZipCodeListComponent}
                 />
                  <PrivateRoute
