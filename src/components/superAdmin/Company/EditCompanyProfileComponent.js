@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { history } from "../../../helpers/history";
+import $ from "jquery";
 class EditCompanyProfileComponent extends React.Component {
   constructor() {
-    super()
+    super();
+    // window.$('.demo').minicolors();
+  }
+  componentDidMount(){
+    // $('.demo').minicolors();
   }
   render() {
     return (
@@ -106,7 +112,7 @@ class EditCompanyProfileComponent extends React.Component {
                             <button className="btn white-line">Cancel</button>
                         </div>
                         <div className="right-list">
-                            <button className="btn white-line">Coverage</button>
+                            <button className="btn white-line" onClick={e=>{history.push("/coveragecompany")}}>Coverage</button>
                             <button className="btn blue-btn">Save</button>
                         </div>
                     </div>

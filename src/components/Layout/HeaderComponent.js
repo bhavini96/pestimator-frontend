@@ -30,9 +30,9 @@ class HeaderComponent extends React.Component {
                                     </a>
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <Link className="dropdown-item" href="#">My Calculators</Link>
-                                        <Link className="dropdown-item" href="#">Profile</Link>
-                                        <Link className="dropdown-item" href="#">Staff Management</Link>
-                                        <Link className="dropdown-item" href="#">State</Link>
+                                        <Link className="dropdown-item" to="/profile">Profile</Link>
+                                        <Link className="dropdown-item" to="/staff">Staff Management</Link>
+                                        <Link className="dropdown-item" to="/state">State</Link>
                                         <Link className="dropdown-item" href="#">County</Link>
                                         <Link className="dropdown-item" to="/">Sign out</Link>
                                     </div>

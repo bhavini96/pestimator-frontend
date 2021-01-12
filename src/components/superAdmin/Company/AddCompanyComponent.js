@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { history } from "../../../helpers/history";
 class AddCompanyComponent extends React.Component {
   constructor() {
     super()
@@ -118,7 +118,7 @@ class AddCompanyComponent extends React.Component {
                 <div className="panel-footer">
                     <div className="action-button">
                         <button className="btn white-line">Cancel</button>
-                        <button className="btn blue-btn">Save</button>
+                        <button className="btn blue-btn" onClick={e=>{history.push("/coveragecompany")}}>Save</button>
                     </div>
                 </div>
             </div>

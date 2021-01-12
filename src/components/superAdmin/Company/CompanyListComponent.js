@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import $ from 'jquery'
 class CompanyListComponent extends React.Component {
   constructor() {
     super()
+  }
+  componentDidMount(){
+  
+    // $(':root').css('--theme-color', '#346304');
+    // $(':root').css('--link-color', '#02ccf7');
+    // $(':root').css('--button-bg', '#6765ff');
+    // $(':root').css('--button-text-color', '#346304');
   }
   render() {
     return (
@@ -43,7 +51,7 @@ class CompanyListComponent extends React.Component {
                                             <li className="box edit">
                                             <Link to="/editcompany" ><i className="icon-edit"></i></Link>
                                             </li>
-                                            <li className="icon"><a href="after-save-compnay-coverage.html"><i className="icon-location-marker"></i></a></li>
+                                            <li className="icon"><Link to="/coveragecompany"><i className="icon-location-marker"></i></Link></li>
                                             <li className="icon"><a href="#"><i className="icon-spect-profile-details"></i></a></li>	
                                             
                                         </ul>
