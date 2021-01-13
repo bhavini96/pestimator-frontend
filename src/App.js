@@ -17,10 +17,12 @@ import StaffListComponent from "./components/companyAdmin/staffManagment/StaffLi
 import AddStaffComponent from "./components/companyAdmin/staffManagment/AddStaffComponent";
 import EditStaffComponent from "./components/companyAdmin/staffManagment/EditStaffComponent";
 import ProfileComponent from "./components/profile/ProfileComponent";
+import $ from "jquery";
 class App extends React.Component {
   constructor() {
     super()
   }
+
   render() {
     return (
       <Router history={history}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import $ from 'jquery'
+
 class CompanyListComponent extends React.Component {
   constructor() {
     super()

@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './content/css/bootstrap.css'
 import './content/css/dataTables.bootstrap4.min.css'
+import './content/css/responsive.bootstrap.min.css'
 import './content/css/jquery.minicolors.css'
 import './content/css/style.css'
 import './content/css/responsive.css'
+import "datatables.net-dt/js/dataTables.dataTables"
+import "datatables.net-dt/css/jquery.dataTables.min.css"
 import { Router, Route } from 'react-router-dom';
 import { history } from '../src/helpers/history';
 import { Provider } from 'react-redux';

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import $ from 'jquery'
+import $ from "jquery";
+
+
 class StaffListComponent extends React.Component {
   constructor() {
     super()
   }
- 
+  
   render() {
     return (
         <>
