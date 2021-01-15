@@ -4,7 +4,8 @@ const URL = {
   
   GET_STATE: 'state/states',
   GET_COUNTY:'county/counties',
-  GET_ZIP:'zipcode/zipcodes'
+  GET_ZIP:'zipcode/zipcodes',
+  UPDATE_STATE:'state/state'
 }
 
 export default URL

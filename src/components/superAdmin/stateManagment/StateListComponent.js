@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 import _ from "lodash"
 import $ from "jquery";
 import getStateAction from "../../../actions/stateManagment/getStateAction";
-
+import updateStateAction from "../../../actions/stateManagment/updateStateAction";
+import userConstants from '../../../constants/userConstants';
+import { validateNumbersWithRequired } from "../../../helpers/validation";
 class StateListComponent extends React.Component {
   constructor(props) {
     super(props)
@@ -14,7 +16,9 @@ class StateListComponent extends React.Component {
         sort_key:'state_name',
         sort_type:1,
         selectedState:{},
-        stateTax:''
+        stateTax:'',
+        formError: {},
+        errorMessage: {},
     }
   }
   
@@ -22,37 +26,47 @@ class StateListComponent extends React.Component {
       const {skip,limit,sort_key,sort_type}=this.state
       var urlParameters = '?skip='+skip+'&limit='+limit+'&sort_key='+sort_key+'&sort_type='+sort_type
       this.props.getStateAction(urlParameters)
-      var table = $('#customize-datatable').DataTable( {
-        responsive: true,
-        "pagingType": "simple_numbers",
-        "lengthChange": false,
-        "pageLength": 20,
-        language: {
-          paginate: {
-          next: '>>', // or '→'
-          previous: '<<' // or '←' 
-          }
-        }
-        //searching: false
-      });
-      var dataTable = $('#customize-datatable').dataTable();
-      $("#searchbox").keyup(function() {
-        dataTable.fnFilter(this.value);
-      });  
+    
   }
   handleEditStateTaxModel=(e,selectedState)=>{
     console.log("selected state ",selectedState);
     this.setState({stateTax:selectedState.state_tax_rate,selectedState:selectedState});
+   
   }
   handleOnchange=(e)=>{
+    let {formError,errorMessage} = this.state
     const {name,value}=e.target
     this.setState({[name]:value})
+    delete formError[name];
+    delete errorMessage[name];
   }
   handleCancelModel=(e)=>{
-    // window.$("#stateTaxModel").model('hide')
+    window.$('#stateTaxModel').modal('hide');
+  
   }
+  handleSaveModel=(e)=>{
+    console.log("save model call");
+    let {selectedState,stateTax,formError,errorMessage} = this.state
+    var requestData={
+      "state_name":selectedState.state_name,
+      "state_tax_rate":stateTax,
+      "state_id":selectedState._id
+
+    }
+    console.log("request data ",requestData);
+
+    const numberError = validateNumbersWithRequired(stateTax);
+    if(numberError == false){
+      this.props.updateStateAction(requestData)
+    }else{
+      formError['stateTax']=true
+      errorMessage['stateTax']=numberError
+    }
+      this.setState({formError,errorMessage})
+  }
+  
   render() {
-    let {selectedState,stateTax} = this.state
+    let {selectedState,stateTax,formError,errorMessage} = this.state
     let statelist = _.get(this,['props','state','stateManagmentReducer','stateData','data'],[])
     return (
         <>
@@ -128,8 +142,10 @@ class StateListComponent extends React.Component {
                      <input type="text" 
                      className="form-control" 
                      name="stateTax" 
+                     id="stateTax"
                      value={this.state.stateTax}
                      onChange={e=>{this.handleOnchange(e)}}/>
+                     <div className="text-danger">{errorMessage.stateTax}</div>
 				</div>
 				
        		</div>
@@ -139,7 +155,7 @@ class StateListComponent extends React.Component {
 						<button className="btn white-line" onClick={e=>{this.handleCancelModel(e)}}>Cancel</button>
 					</div>
 					<div className="right-list">
-						<button className="btn blue-btn">Save</button>
+						<button className="btn blue-btn" onClick={e=>{this.handleSaveModel(e)}}>Save</button>
 					</div>
 				</div>
 	      	</div>  
@@ -152,10 +168,16 @@ class StateListComponent extends React.Component {
 }
 
 function mapStateToProps(state) {
-  
+  console.log("map state",state);
+  if(state.stateManagmentReducer){
+      if(_.get(state,'stateManagmentReducer.type')== userConstants.UPDATE_STATE_SUCCESS){
+        window.$('#stateTaxModel').modal('hide');
+      }
+  }
     return { state }
   }
   const actionCreators = {
     getStateAction: getStateAction,
+    updateStateAction:updateStateAction
   }
   export default connect(mapStateToProps, actionCreators)(StateListComponent)

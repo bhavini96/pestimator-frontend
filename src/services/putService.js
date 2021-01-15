@@ -21,7 +21,7 @@ export default async function put(url, requestData, contentType = 'application/j
 
 	} catch (error) {
 
-		return response;
+		return error;
 	}
 
 }
